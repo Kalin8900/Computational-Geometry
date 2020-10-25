@@ -160,7 +160,6 @@ function App() {
 
   return (
     <AppWrapper>
-        <input id={"test"} type={"file"} />
         <AnswerScreen ref={answPg}>
 
         </AnswerScreen>
