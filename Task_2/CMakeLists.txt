@@ -24,21 +24,27 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
+set(SOURCES main.cpp mainwindow.cpp logger.cpp canvas.cpp point.cpp fileloader.cpp guilogs.cpp)
+set(HEADERS mainwindow.h logger.h canvas.h point.h fileloader.h guilogs.h)
+set(UI mainwindow.ui)
+
+set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/icon.rc")
+
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
   add_library(geoAlg2 SHARED
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    ${SOURCES}
+    ${HEADERS}
+    ${UI}
+    ${APP_ICON_RESOURCE_WINDOWS}
   )
 else()
   add_executable(geoAlg2
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+      ${SOURCES}
+      ${HEADERS}
+      ${UI}
+      ${APP_ICON_RESOURCE_WINDOWS}
   )
 endif()
 
